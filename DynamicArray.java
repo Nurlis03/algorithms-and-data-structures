@@ -11,7 +11,7 @@ public class DynamicArray<T> implements Iterable<T> {
 
     public DynamicArray(int capacity) {
         if (capacity < 0) throw new IllegalArgumentException("Illegal Capacity: " +  capacity);
-        this.capacity = capacity;
+        this.capacity = capacity;  
         arr = (T[]) new Object[capacity];
     }
 
@@ -107,5 +107,15 @@ public class DynamicArray<T> implements Iterable<T> {
             }
         };
     }
-    
+
+    @Override
+    public String toString() {
+        if (len == 0) return "[]";
+        else {
+            StringBuilder sb = new StringBuilder(len).append("[");
+            for (int i = 0; i < len - 1; i++) sb.append(arr[i] + ", ");
+            return sb.append(arr[len - 1] + "]").toString();
+        }
+    }
+
 }
