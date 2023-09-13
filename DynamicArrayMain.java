@@ -1,6 +1,10 @@
+import java.util.Scanner;
+
 public class DynamicArrayMain {
     public static void main(String[] args) {
-        DynamicArray<Integer> dynamicArray = new DynamicArray<>();
+        DynamicArray<Integer> dynamicArray = new DynamicArray<>();        
+        Scanner input = new Scanner(System.in);
+        int operation = 0;
 
         while (true) {
             System.out.println("\tSelect option:\n" +
@@ -18,6 +22,7 @@ public class DynamicArrayMain {
                 "\t12. Show Dynamic array.\n" +
                 "\t13. Exit.\n\n"
                 );
+                operation = input.nextInt();
                 break;
         }
     }
