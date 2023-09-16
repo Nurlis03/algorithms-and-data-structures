@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class DynamicArrayMain {
-    public static void main(String[] args) {
-        DynamicArray<Integer> dynamicArray = new DynamicArray<>();        
+    public static void main(String[] args) {        
         Scanner input = new Scanner(System.in);
+        DynamicArray<Integer> dynamicArray = null;
         int operation = 0;
 
         while (true) {
@@ -23,6 +23,33 @@ public class DynamicArrayMain {
                 "\t13. Exit.\n\n"
                 );
                 operation = input.nextInt();
+                switch(operation) {
+                    case 1:
+                        if (dynamicArray != null) {
+                            dynamicArray = new DynamicArray<>();
+                            System.out.println("A dynamic array of numbers has been created!!!\n");
+                        }
+                        else {
+                            System.out.println("Dynamic array already created.");
+                        }
+                        break;
+                    case 2:
+                        if (dynamicArray != null) {
+                            System.out.println(dynamicArray.size());
+                        }
+                        else {
+                            System.out.println("Dynamic array not created yet.");
+                        }
+                    case 3:
+                        if (dynamicArray != null) {
+                            if (dynamicArray.isEmpty()) {
+                                System.out.println("Dynamic array is empty");
+                            }
+                            else {
+                                System.out.println("Dynamic array is not empty");
+                            }
+                        }
+                }
                 break;
         }
     }
