@@ -22,35 +22,67 @@ public class DynamicArrayMain {
                 "\t12. Show Dynamic array.\n" +
                 "\t13. Exit.\n\n"
                 );
-                operation = input.nextInt();
-                switch(operation) {
-                    case 1:
-                        if (dynamicArray != null) {
-                            dynamicArray = new DynamicArray<>();
-                            System.out.println("A dynamic array of numbers has been created!!!\n");
+            System.out.println("Enter operation: ");
+            operation = input.nextInt();
+            switch(operation) {
+                case 1:
+                    if (dynamicArray != null) {
+                        dynamicArray = new DynamicArray<>();
+                        System.out.println("A dynamic array of numbers has been created!!!\n");
+                    }
+                    else {
+                        System.out.println("Dynamic array already created.");
+                    }
+                    break;
+                case 2:
+                    if (dynamicArray != null) {
+                        System.out.println(dynamicArray.size());
+                    }
+                    else {
+                        System.out.println("Dynamic array not created yet.");
+                    }
+                case 3:
+                    if (dynamicArray != null) {
+                        if (dynamicArray.isEmpty()) {
+                            System.out.println("Dynamic array is empty");
                         }
                         else {
-                            System.out.println("Dynamic array already created.");
+                            System.out.println("Dynamic array is not empty");
                         }
-                        break;
-                    case 2:
-                        if (dynamicArray != null) {
-                            System.out.println(dynamicArray.size());
-                        }
-                        else {
-                            System.out.println("Dynamic array not created yet.");
-                        }
-                    case 3:
-                        if (dynamicArray != null) {
-                            if (dynamicArray.isEmpty()) {
-                                System.out.println("Dynamic array is empty");
-                            }
-                            else {
-                                System.out.println("Dynamic array is not empty");
-                            }
-                        }
-                }
-                break;
+                    }
+                    else {
+                        System.out.println("Dynamic array not created yet.");
+                    }
+                case 4:
+                    if (dynamicArray != null) {
+                        System.out.println("Enter index that you want get element: ");
+                        operation = input.nextInt();
+                        System.out.println(dynamicArray.get(operation));
+                    }
+                    else {
+                        System.out.println("Dynamic array not created yet.");
+                    }
+                case 5:
+                    if (dynamicArray != null) {
+                        System.out.println("Enter index that you want set element: ");
+                        int indx;
+                        indx = input.nextInt();
+                        System.out.println("Enter value that you want save this element by index: ");
+                        operation = input.nextInt();
+                        dynamicArray.set(indx, operation);
+                    }
+                    else {
+                        System.out.println("Dynamic array not created yet.");
+                    }
+                case 6:
+                    if (dynamicArray != null) {
+                        dynamicArray.clear();
+                    }
+                    else {
+                        System.out.println("Dynamic array not created yet.");
+                    }
+            }
+            break;
         }
     }
 }
