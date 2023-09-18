@@ -81,6 +81,33 @@ public class DynamicArrayMain {
                     else {
                         System.out.println("Dynamic array not created yet.");
                     }
+                case 7:
+                    if (dynamicArray != null) {
+                        System.out.println("Enter integer value: ");
+                        operation = input.nextInt();
+                        dynamicArray.add(operation);
+                    }
+                    else {
+                        System.out.println("Dynamic array not created yet.");
+                    }
+                case 8:
+                    if (dynamicArray != null) {
+                        System.out.println("Enter index to delete value: ");
+                        operation = input.nextInt();
+                        dynamicArray.removeAt(operation);
+                    }
+                    else {
+                        System.out.println("Dynamic array not created yet.");
+                    }
+                case 9:
+                    if (dynamicArray != null) {
+                        System.out.println("Enter integer value to delete in dynamic array: ");
+                        operation = input.nextInt();
+                        dynamicArray.remove(operation);
+                    }
+                    else {
+                        System.out.println("Dynamic array not created yet.");
+                    }
             }
             break;
         }
