@@ -137,6 +137,17 @@ public class DynamicArrayMain {
                     else {
                         System.out.println("Dynamic array not created yet.");
                     }
+                case 12:
+                    if (dynamicArray != null) {
+                        System.out.println(dynamicArray.toString());
+                    }
+                    else {
+                        System.out.println("Dynamic array not created yet.");
+                    }
+                case 13:
+                    break;
+                default:
+                    continue;
             }
             break;
         }
