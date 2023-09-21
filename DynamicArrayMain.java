@@ -5,8 +5,8 @@ public class DynamicArrayMain {
         Scanner input = new Scanner(System.in);
         DynamicArray<Integer> dynamicArray = null;
         int operation = 0;
-
-        while (true) {
+        Boolean cycle = true;
+        while (cycle) {
             System.out.println("\tSelect option:\n" +
                 "\t1. Creating Dynamic array.\n" +
                 "\t2. Size of the Dynamic array.\n" +
@@ -22,16 +22,16 @@ public class DynamicArrayMain {
                 "\t12. Showing Dynamic array.\n" +
                 "\t13. Exit.\n\n"
                 );
-            System.out.println("Enter operation: ");
+            System.out.print("Enter operation: ");
             operation = input.nextInt();
             switch(operation) {
                 case 1:
-                    if (dynamicArray != null) {
+                    if (dynamicArray == null) {
                         dynamicArray = new DynamicArray<>();
                         System.out.println("A dynamic array of numbers has been created!!!\n");
                     }
                     else {
-                        System.out.println("Dynamic array already created.");
+                        System.out.println("Dynamic array already created.\n");
                     }
                     break;
                 case 2:
@@ -39,57 +39,63 @@ public class DynamicArrayMain {
                         System.out.println(dynamicArray.size());
                     }
                     else {
-                        System.out.println("Dynamic array not created yet.");
+                        System.out.println("Dynamic array not created yet.\n");
                     }
+                    break;
                 case 3:
                     if (dynamicArray != null) {
                         if (dynamicArray.isEmpty()) {
-                            System.out.println("Dynamic array is empty");
+                            System.out.println("Dynamic array is empty\n");
                         }
                         else {
-                            System.out.println("Dynamic array is not empty");
+                            System.out.println("Dynamic array is not empty\n");
                         }
                     }
                     else {
-                        System.out.println("Dynamic array not created yet.");
+                        System.out.println("Dynamic array not created yet.\n");
                     }
+                    break;
                 case 4:
                     if (dynamicArray != null) {
-                        System.out.println("Enter index that you want get element: ");
+                        System.out.print("Enter index that you want get element: ");
                         operation = input.nextInt();
                         System.out.println(dynamicArray.get(operation));
                     }
                     else {
-                        System.out.println("Dynamic array not created yet.");
+                        System.out.println("Dynamic array not created yet.\n");
                     }
+                    break;
                 case 5:
                     if (dynamicArray != null) {
-                        System.out.println("Enter index that you want set element: ");
+                        System.out.print("Enter index that you want set element: ");
                         int indx;
                         indx = input.nextInt();
-                        System.out.println("Enter value that you want save this element by index: ");
+                        System.out.print("Enter value that you want save this element by index: ");
                         operation = input.nextInt();
                         dynamicArray.set(indx, operation);
                     }
                     else {
-                        System.out.println("Dynamic array not created yet.");
+                        System.out.println("Dynamic array not created yet.\n");
                     }
+                    break;
                 case 6:
                     if (dynamicArray != null) {
                         dynamicArray.clear();
                     }
                     else {
-                        System.out.println("Dynamic array not created yet.");
+                        System.out.println("Dynamic array not created yet.\n");
                     }
+                    break;
                 case 7:
                     if (dynamicArray != null) {
-                        System.out.println("Enter integer value: ");
+                        System.out.print("Enter integer value: ");
                         operation = input.nextInt();
                         dynamicArray.add(operation);
                     }
                     else {
-                        System.out.println("Dynamic array not created yet.");
+                        System.out.println("Dynamic array not created yet.\n");
                     }
+                    break;
                 case 8:
                     if (dynamicArray != null) {
                         System.out.println("Enter index to delete value: ");
@@ -97,59 +103,64 @@ public class DynamicArrayMain {
                         dynamicArray.removeAt(operation);
                     }
                     else {
-                        System.out.println("Dynamic array not created yet.");
+                        System.out.println("Dynamic array not created yet.\n");
                     }
+                    break;
                 case 9:
                     if (dynamicArray != null) {
-                        System.out.println("Enter integer value to delete in dynamic array: ");
+                        System.out.print("Enter integer value to delete in dynamic array: ");
                         operation = input.nextInt();
                         dynamicArray.remove(operation);
                     }
                     else {
-                        System.out.println("Dynamic array not created yet.");
+                        System.out.println("Dynamic array not created yet.\n");
                     }
+                    break;
                 case 10:
                     if (dynamicArray != null) {
-                        System.out.println("Enter integer value: ");
+                        System.out.print("Enter integer value: ");
                         operation = input.nextInt();
                         int indx = dynamicArray.indexOf(operation);
                         if (indx < 0) {
-                            System.out.println("Value " + operation + "is not exist in dynamic array");
+                            System.out.println("Value " + operation + "is not exist in dynamic array\n");
                         }
                         else {
                             System.out.println("The first element found is in the index: " + indx);
                         }
                     }
                     else {
-                        System.out.println("Dynamic array not created yet.");
+                        System.out.println("Dynamic array not created yet.\n");
                     }
+                    break;
                 case 11:
                     if (dynamicArray != null) {
-                        System.out.println("Enter integer value: ");
+                        System.out.print("Enter integer value: ");
                         operation = input.nextInt();
                         if (dynamicArray.contains(operation)) {
-                            System.out.println("Element " + operation + "contains in dynamic array.");
+                            System.out.println("Element " + operation + "contains in dynamic array.\n");
                         }
                         else {
-                            System.out.println("Element " + operation + "doesn't contains in dynamic array.");
+                            System.out.println("Element " + operation + "doesn't contains in dynamic array.\n");
                         }
                     }
                     else {
-                        System.out.println("Dynamic array not created yet.");
+                        System.out.println("Dynamic array not created yet.\n");
                     }
+                    break;
                 case 12:
                     if (dynamicArray != null) {
                         System.out.println(dynamicArray.toString());
                     }
                     else {
-                        System.out.println("Dynamic array not created yet.");
+                        System.out.println("Dynamic array not created yet.\n");
                     }
+                    break;
                 case 13:
+                    cycle = false;
                     break;
                 default:
-                    continue;
+                    break;
             }
-            break;
         }
     }
 }
