@@ -98,7 +98,7 @@ public class DynamicArrayMain {
                     break;
                 case 8:
                     if (dynamicArray != null) {
-                        System.out.println("Enter index to delete value: ");
+                        System.out.print("Enter index to delete value: ");
                         operation = input.nextInt();
                         dynamicArray.removeAt(operation);
                     }
@@ -122,7 +122,7 @@ public class DynamicArrayMain {
                         operation = input.nextInt();
                         int indx = dynamicArray.indexOf(operation);
                         if (indx < 0) {
-                            System.out.println("Value " + operation + "is not exist in dynamic array\n");
+                            System.out.println("Value " + operation + " is not exist in dynamic array\n");
                         }
                         else {
                             System.out.println("The first element found is in the index: " + indx);
@@ -137,10 +137,10 @@ public class DynamicArrayMain {
                         System.out.print("Enter integer value: ");
                         operation = input.nextInt();
                         if (dynamicArray.contains(operation)) {
-                            System.out.println("Element " + operation + "contains in dynamic array.\n");
+                            System.out.println("Element " + operation + " contains in dynamic array.\n");
                         }
                         else {
-                            System.out.println("Element " + operation + "doesn't contains in dynamic array.\n");
+                            System.out.println("Element " + operation + " doesn't contains in dynamic array.\n");
                         }
                     }
                     else {
