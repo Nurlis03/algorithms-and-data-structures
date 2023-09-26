@@ -19,6 +19,19 @@ public class DoublyLinkedList <T> implements Iterable <T> {
             return data.toString();
         }
     }
+
+    // Empty this linked list, O(n)
+    public void clear() {
+        Node <T> trav = head;
+        while (trav != null) {
+            Node <T> next = trav.next;
+            trav.prev = trav.next = null;
+            trav.data = null;
+            trav = next;
+        }
+        head = tail = trav = null;
+        size = 0;
+    }
     @Override
     public Iterator<T> iterator() {
         // TODO Auto-generated method stub
