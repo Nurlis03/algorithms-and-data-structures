@@ -32,6 +32,16 @@ public class DoublyLinkedList <T> implements Iterable <T> {
         head = tail = trav = null;
         size = 0;
     }
+
+    // Return the size of this linked list
+    public int size() {
+        return size;
+    }
+
+    // Is this linked list empty?
+    public boolean isEmpty() {
+        return size() == 0;
+    }
     @Override
     public Iterator<T> iterator() {
         // TODO Auto-generated method stub
