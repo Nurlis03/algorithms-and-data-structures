@@ -42,6 +42,24 @@ public class DoublyLinkedList <T> implements Iterable <T> {
     public boolean isEmpty() {
         return size() == 0;
     }
+    
+    // Add an element to the tail of the linked list, O(1)
+    public void add(T elem) {
+        addLast(elem);
+    }
+
+    // Add a node to the tail of the linked list, O(1)
+    public void addLast(T elem) {
+        // The linked list is empty
+        if (isEmpty()) {
+            head = tail = new Node <T> (elem, null, null);
+        }
+        else {
+            tail.next = new Node <T> (elem, tail, null);
+            tail = tail.next;
+        }
+        size++;
+    }
     @Override
     public Iterator<T> iterator() {
         // TODO Auto-generated method stub
