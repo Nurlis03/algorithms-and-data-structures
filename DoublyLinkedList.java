@@ -48,6 +48,19 @@ public class DoublyLinkedList <T> implements Iterable <T> {
         addLast(elem);
     }
 
+    // Add an element to the beginning of this linked list, O(1)
+    public void addFirst(T elem) {
+        // The linked list is empty
+        if (isEmpty()) {
+            head = tail = new Node <T> (elem, null, null);
+        }
+        else {
+            head.prev = new Node <T> (elem, null, head);
+            head = head.prev;
+        }
+        size++;
+    }
+
     // Add a node to the tail of the linked list, O(1)
     public void addLast(T elem) {
         // The linked list is empty
