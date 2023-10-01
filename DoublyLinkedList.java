@@ -79,6 +79,12 @@ public class DoublyLinkedList <T> implements Iterable <T> {
         if (isEmpty()) throw new RuntimeException("Empty list");
         return head.data;
     }
+
+    // Check the value of the last node if it exists, O(1)
+    public T peekLast() {
+        if (isEmpty()) throw new RuntimeException("Empty list");
+        return tail.data;
+    }
     @Override
     public Iterator<T> iterator() {
         // TODO Auto-generated method stub
