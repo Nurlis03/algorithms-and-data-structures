@@ -1,5 +1,7 @@
 import java.util.Iterator;
 
+import javax.management.RuntimeErrorException;
+
 public class DoublyLinkedList <T> implements Iterable <T> {
 
     private int size = 0;
@@ -84,6 +86,27 @@ public class DoublyLinkedList <T> implements Iterable <T> {
     public T peekLast() {
         if (isEmpty()) throw new RuntimeException("Empty list");
         return tail.data;
+    }
+
+    // Remove the first value at the head of the linked list, O(1)
+    public T removeFirst() {
+        // Can't remove data from an empty lsit -_-
+        if (isEmpty()) throw new RuntimeException("Empty list");
+
+        // Extract the data at the head and move
+        // the head pointer forwards one node
+        T data = head.data;
+        head = head.next;
+        --size;
+
+        // If the list is empty set the tail to null as well
+        if (isEmpty()) tail = null;
+
+        // Do a memory clean of the previous node
+        else head.prev = null;
+
+        // Return the data that was at the first node we just removed
+        return data;
     }
     @Override
     public Iterator<T> iterator() {
