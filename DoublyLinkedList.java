@@ -108,6 +108,30 @@ public class DoublyLinkedList <T> implements Iterable <T> {
         // Return the data that was at the first node we just removed
         return data;
     }
+
+    // Removed an arbitrary node from the linked list, O(1)
+    private T remove(Node <T> node) {
+        // If the node to remove is somewhere either at the
+        // head or the tail handle those independently
+        if (node.prev == null) return removeFirst();
+        if (node.next == null) return removeLast();
+
+        // Make the pointers of adjacent nodes skip over 'node'
+        node.next.prev = node.prev;
+        node.prev.next = node.next;
+
+        // Temporary store the data we want to return
+        T data = node.data;
+
+        // Memory cleanup
+        node.data = null;
+        node = node.prev = node.next = null;
+
+        --size;
+
+        // Return the data at the node we just removed
+        return data;
+    }
     @Override
     public Iterator<T> iterator() {
         // TODO Auto-generated method stub
