@@ -132,6 +132,26 @@ public class DoublyLinkedList <T> implements Iterable <T> {
         // Return the data at the node we just removed
         return data;
     }
+
+    // Remove a node at a particular index, O(n)
+    public T removeAt(int index) {
+        // Make sure the index provided is valid -_-
+        if (index < 0 || index >= size) throw new IllegalArgumentException();
+
+        int i;
+        Node <T> trav;
+
+        // Search from the front of the list
+        if (index < size/2) {
+            for (i = 0, trav = head; i != index; i++) {
+                trav = trav.next;
+            }
+        // Search from the back of the list
+        } else
+          for (i = size-1, trav = tail; i != index; i--)
+            trav = trav.prev;
+        return remove(trav);
+    }
     @Override
     public Iterator<T> iterator() {
         // TODO Auto-generated method stub
