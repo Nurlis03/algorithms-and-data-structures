@@ -133,6 +133,27 @@ public class DoublyLinkedList <T> implements Iterable <T> {
         return data;
     }
 
+    // Find the index of a particular value in the linked list, O(n)
+    public int indexOf(Object obj) {
+        int index = 0;
+        Node <T> trav = head;
+
+        // Support searching for null
+        if (obj == null) {
+            for (trav = head; trav != null; trav = trav.next, index++) {
+                if (trav.data == null)
+                    return index;
+            }
+        }
+        // Search for non null object
+        else {
+            for (trav = head; trav != null; trav = trav.next, index++) {
+                if (obj.equals(trav.data))
+                    return index;
+            }
+        }
+        return -1;
+    }
     // Remove a node at a particular index, O(n)
     public T removeAt(int index) {
         // Make sure the index provided is valid -_-
