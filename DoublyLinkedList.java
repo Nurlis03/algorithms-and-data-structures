@@ -109,6 +109,27 @@ public class DoublyLinkedList <T> implements Iterable <T> {
         return data;
     }
 
+    // Remove the last value at the tail of the linked list, O(1)
+    public T removeLast() {
+        // Can't remove data from an empty list
+        if (isEmpty()) throw new RuntimeException("Empty list");
+
+        // Extract the data at the tail and move
+        // the tail pointer backwards one node
+        T data = tail.data;
+        tail = tail.prev;
+        --size;
+
+        // If the list is now empty set the head to null
+        if (isEmpty()) head = null;
+
+        // Do a memory clean of the node that was just removed
+        else tail.next = null;
+
+        // Return the data that was in the last node we just removed
+        return data;
+    }
+
     // Removed an arbitrary node from the linked list, O(1)
     private T remove(Node <T> node) {
         // If the node to remove is somewhere either at the
