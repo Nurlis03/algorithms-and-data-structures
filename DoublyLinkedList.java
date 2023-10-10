@@ -236,10 +236,18 @@ public class DoublyLinkedList <T> implements Iterable <T> {
         sb.append(" ]");
         return sb.toString();
     }
-    @Override
-    public Iterator<T> iterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'iterator'");
+    @Override public java.util.Iterator <T> iterator () {
+        return new java.util.Iterator <T>() {
+            private Node <T> trav = head;
+            @Override public boolean hasNext() {
+                return trav != null;
+            }
+            @Override public T next() {
+                T data = trav.data;
+                trav = trav.next;
+                return data;
+            }
+        };
     }
     
 }
