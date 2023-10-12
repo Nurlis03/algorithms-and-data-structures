@@ -43,4 +43,19 @@ public class LinkedList {
         // Retturn the list by head;
         return list;
     }
+
+    // Method to print the LinkedList.
+    public static void printList(LinkedList list) {
+        Node currNode = list.head;
+        
+        System.out.println("LinkedList: ");
+
+        while (currNode != null) {
+            // Print the data at current node
+            System.out.println(currNode.data + " ");
+
+            // Go to next node
+            currNode = currNode.next;
+        }
+    }
 }
