@@ -44,18 +44,101 @@ public class LinkedList {
         return list;
     }
 
+    // Method to delete a node in the LinkedList by KEY
+    public static LinkedList deleteByKey(LinkedList list, int key) {
+        // Store head node
+        Node currNode = list.head, prev = null;
+
+        //
+        // CASE 1:
+        // If head node itself holds the key to be deleted
+
+        if (currNode != null && currNode.data == key) {
+            list.head = currNode.next; // Changed head
+
+            // Display the message
+            System.out.println(key + " found and deleted");
+
+            // Return the updated List
+            return list;
+        }
+
+        //
+        // CASE 2:
+        // If the key is somewhere other than at head
+        //
+
+        // Search for the key to be deleted,
+        // keep track of the previous node
+        // as it is needed to change currNode.next
+        while (currNode != null && currNode.data != key) {
+            // If currNode does not hold key
+            // continue to next node
+            prev = currNode;
+            currNode = currNode.next;
+        }
+
+        // If the key was present, it should be at currNode
+        // Therefore the currNode shall not be null
+        if (currNode != null) {
+            // Since the key is at currNode
+            // Unlink currNode from linked list
+            prev.next = currNode.next;
+
+            // Display the message
+            System.out.println(key + " found and deleted");
+        }
+
+        //
+        // CASE 3: The key is not present
+        //
+
+        // if key was noe present in linked list
+        // currNode should be null
+        if (currNode == null) {
+            // Display the message
+            System.out.println(key + " not found");;
+        }
+
+        // return the List
+        return list;
+    }
+
     // Method to print the LinkedList.
     public static void printList(LinkedList list) {
         Node currNode = list.head;
         
-        System.out.println("LinkedList: ");
+        System.out.print("LinkedList: ");
 
         while (currNode != null) {
             // Print the data at current node
-            System.out.println(currNode.data + " ");
+            System.out.print(currNode.data + " ");
 
             // Go to next node
             currNode = currNode.next;
         }
+    }
+
+    // Driver code
+    public static void main(String[] args) {
+        /* Start with the empty list. */
+        LinkedList list = new LinkedList();
+
+        //
+        // ******INSERTION******
+        //
+
+        // Insert the values
+        list = insert(list, 1);
+        list = insert(list, 2);
+        list = insert(list, 3);
+        list = insert(list, 4);
+        list = insert(list, 5);
+        list = insert(list, 6);
+        list = insert(list, 7);
+        list = insert(list, 8);
+
+        // Print the LinkedList
+        printList(list);
     }
 }
