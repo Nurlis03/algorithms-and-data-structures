@@ -117,6 +117,7 @@ public class LinkedList {
             // Go to next node
             currNode = currNode.next;
         }
+        System.out.println();
     }
 
     // Driver code
@@ -137,6 +138,29 @@ public class LinkedList {
         list = insert(list, 6);
         list = insert(list, 7);
         list = insert(list, 8);
+
+        // Print the LinkedList
+        printList(list);
+
+        //
+        // ******DELETION BY KEY******
+        //
+
+        // Delete node with value 1
+        // In this case the key is ***at head***
+        deleteByKey(list, 1);
+
+        // Print the LinkedList
+        printList(list);
+
+        // Delete node with value 4
+        // In this case the key is present ***in the
+        // middle***
+        deleteByKey(list, 4);
+
+        // Delete node with value 10
+        // In this case the key is ***not present***
+        deleteByKey(list, 10);
 
         // Print the LinkedList
         printList(list);
