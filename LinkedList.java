@@ -120,6 +120,59 @@ public class LinkedList {
         System.out.println();
     }
 
+    // Method to delete a node in the LinkedList by POSITION
+    public static LinkedList deleteAtPosition(LinkedList list, int index) {
+        // Store head node
+        Node currNode = list.head, prev = null;
+
+        //
+        // CASE 1:
+        // If index is 0, then node itself is to be
+        // deleted
+
+        if (index == 0 && currNode != null) {
+            list.head = currNode.next; // Changed head
+
+            // Display the message
+            System.out.println(index + " position element deleted");
+
+            // Return the updated List
+            return list;
+        }
+
+        //
+        // CASE 2:
+        // If the index is greater than 0 but less than the
+        // size of LinkedList
+        //
+        // The counter
+        int counter = 0;
+
+        // Count for the index to be deleted
+        // keep track of the previous node
+        // as it is needed to change currNode.next
+        while (currNode != null) {
+            if (counter == index) {
+                // Since the currNode is the required
+                // position Unlink currNode from linked list
+                prev.next = currNode.next;
+
+                // Display the message
+                System.out.println(index + " position element deleted");
+                break;
+            }
+            else {
+                // If current position is not the index
+                // continue to next node
+                prev = currNode;
+                currNode = currNode.next;
+                counter++;
+            }
+        }
+
+        // IF the element 
+    }
+
     // Driver code
     public static void main(String[] args) {
         /* Start with the empty list. */
