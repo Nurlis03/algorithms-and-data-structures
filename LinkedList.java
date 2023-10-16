@@ -170,7 +170,21 @@ public class LinkedList {
             }
         }
 
-        // IF the element 
+        // If the position element was found, it should be
+        // at currNode Therefore the currNode shall not be
+        // null
+        //
+        // CASE 3: The index is greater than the size of the
+        // LinkedList
+        //
+        // In this case, the currNode should be null
+        if (currNode == null) {
+            // Display the message
+            System.out.println(index + " position element not found");
+        }
+
+        // return the List
+        return list;
     }
 
     // Driver code
@@ -181,7 +195,7 @@ public class LinkedList {
         //
         // ******INSERTION******
         //
-
+    
         // Insert the values
         list = insert(list, 1);
         list = insert(list, 2);
@@ -191,30 +205,59 @@ public class LinkedList {
         list = insert(list, 6);
         list = insert(list, 7);
         list = insert(list, 8);
-
+    
         // Print the LinkedList
         printList(list);
-
+    
         //
         // ******DELETION BY KEY******
         //
-
+    
         // Delete node with value 1
         // In this case the key is ***at head***
         deleteByKey(list, 1);
-
+    
         // Print the LinkedList
         printList(list);
-
+    
         // Delete node with value 4
         // In this case the key is present ***in the
         // middle***
         deleteByKey(list, 4);
-
+    
+        // Print the LinkedList
+        printList(list);
+    
         // Delete node with value 10
         // In this case the key is ***not present***
         deleteByKey(list, 10);
-
+    
+        // Print the LinkedList
+        printList(list);
+    
+        //
+        // ******DELETION AT POSITION******
+        //
+    
+        // Delete node at position 0
+        // In this case the key is ***at head***
+        deleteAtPosition(list, 0);
+    
+        // Print the LinkedList
+        printList(list);
+    
+        // Delete node at position 2
+        // In this case the key is present ***in the
+        // middle***
+        deleteAtPosition(list, 2);
+    
+        // Print the LinkedList
+        printList(list);
+    
+        // Delete node at position 10
+        // In this case the key is ***not present***
+        deleteAtPosition(list, 10);
+    
         // Print the LinkedList
         printList(list);
     }
