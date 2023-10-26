@@ -28,6 +28,19 @@ public class Queue <T> implements Iterable <T> {
         }
         return list.peekFirst();
     }
+
+    // Poll an element from the front of the queue
+    // The method throws an error is the queue is empty
+    public T poll() {
+        if (isEmpty())
+            throw new RuntimeException("Queue Empty");
+        return list.removeFirst();
+    } 
+
+    // Add an element to the back of the queue
+    public void offer(T elem) {
+        list.addLast(elem);
+    }
     @Override
     public Iterator<T> iterator() {
         // TODO Auto-generated method stub
