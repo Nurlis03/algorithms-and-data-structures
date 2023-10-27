@@ -1,3 +1,4 @@
+package Queue.v1;
 import java.util.Iterator;
 
 public class Queue <T> implements Iterable <T> {
@@ -43,8 +44,7 @@ public class Queue <T> implements Iterable <T> {
     }
     @Override
     public Iterator<T> iterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'iterator'");
+        return list.iterator();
     }
     
 }
