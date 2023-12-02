@@ -26,3 +26,20 @@ So what do we do?
 
 `In our implementation` whenever we add a key-value pair to the Hash Table we check the load factor if it is greater than 0.7 we double the size of our hash table.
 
+`Implementation:`
+
+We will try to make a generic map without putting any restrictions on the data type of the key and the value. Also, every hash node needs to know the next node it is pointing to in the linked list so a next pointer is also required.
+
+The functions we plan to keep in our hash map are  as follows: 
+
+* get(K key): returns the value corresponding to the key if the key is present in HT (Hast Table)
+* getSize() : return the size of the HT
+* add(): adds a new valid key, value pair to the HT, if already present updates the value
+* remove() : removes the key, value pair
+* isEmpty() : returns true if size is zero
+
+```Java
+ArrayList<HashNode<K, V>> bucket = new ArrayList<>();
+```
+
+A `Helper Function` is implemented to get the index of the key, to avoid redundancy in other functions like get, add and remove. This function uses the inbuilt java function to generate a hash code, and we compress the hash code by the size of the HT so that the index is within the range of the size of the HT
