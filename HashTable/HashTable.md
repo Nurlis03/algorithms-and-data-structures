@@ -43,3 +43,26 @@ ArrayList<HashNode<K, V>> bucket = new ArrayList<>();
 ```
 
 A `Helper Function` is implemented to get the index of the key, to avoid redundancy in other functions like get, add and remove. This function uses the inbuilt java function to generate a hash code, and we compress the hash code by the size of the HT so that the index is within the range of the size of the HT
+
+`get()`
+
+The get function just takes a key as an input and returns the corresponding value if the key is present in the table otherwise returns null. Steps are:  
+
+* Retrieve the input key to find the index in the HT
+* Traverse the linked list corresponding to the HT if you find the value then return it else if you fully traverse the list without returning it means the value is not present in the table and can’t be fetched so return null
+
+`remove()`
+
+* Fetch the index corresponding to the input key using the helper function
+* The traversal of the linked list is similar to in get() but what is special here is that one needs to remove the key along with finding it and two cases arise
+* If the key to be removed is present at the head of the linked list
+* If the key to be removed is not present at the head but somewhere else
+
+`add()`
+
+Now to the most interesting and challenging function of this entire implementation. It is interesting because we need to dynamically increase the size of our list when the load factor is above the value we specified.  
+
+
+* Just like removing steps till traversal and adding and two cases (addition at head spot or non-head spot) remain the same.
+* Towards the end, if the load factor is greater than 0.7
+* We double the size of the array list and then recursively call add function on existing keys because in our case hash value generated uses the size of the array to compress the inbuilt JVM hash code we use, so we need to fetch the new indices for the existing keys. This is very important to understand please re-read this paragraph till you get a hang of what is happening in the add function.
