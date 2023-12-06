@@ -53,4 +53,42 @@ class Map<K, V> {
         index = index < 0 ? index * -1 : index;
         return index;
     }
+
+    // Method to remove a given key
+    public V remove(K key) {
+        // Apply hash function to find index for given key
+        int bucketIndex = getBucketIndex(key);
+        int hashCode = hashCode(key);
+        // Get head of chain
+        HashNode<K, V> head = bucketArray.get(bucketIndex);
+
+        // Search for key in its chain
+        HashNode<K, V> prev = null;
+        while (head != null) {
+            if (head.key.equals(key) && hashCode == head.hashCode) {
+                break;
+            }
+
+            // Else keep moving in chain
+            prev = head;
+            head = head.next;
+        }
+
+        // If key was not there
+        if (head == null) {
+            return null;
+        }
+
+        // Reduce size
+        size--;
+
+        // Remove key
+        if (prev != null) {
+            prev.next = head.next;
+        }
+        else {
+            bucketArray.set(bucketIndex, head.next);
+        }
+        return head.value;
+    }
 }
