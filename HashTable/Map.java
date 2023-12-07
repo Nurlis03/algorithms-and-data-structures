@@ -91,4 +91,24 @@ class Map<K, V> {
         }
         return head.value;
     }
+
+    // Returns value for a key
+    public V get(K key) {
+        // Find head of chain for given key
+        int bucketIndex = getBucketIndex(key);
+        int hashCode = hashCode(key);
+
+        HashNode<K, V> head = bucketArray.get(bucketIndex);
+
+        // Search key in chain
+        while (head != null) {
+            if (head.key.equals(key) && head.hashCode == hashCode) {
+                return head.value;
+            }
+            head = head.next;
+        }
+
+        // If key not found
+        return null;
+    }
 }
