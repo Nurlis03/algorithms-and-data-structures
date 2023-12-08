@@ -111,4 +111,21 @@ class Map<K, V> {
         // If key not found
         return null;
     }
+
+    // Adds a key value pair to hash
+    public void add(K key, V value) {
+        // Find head of chain for given key
+        int bucketIndex = getBucketIndex(key);
+        int hashCode = hashCode(key);
+        HashNode<K, V> head = bucketArray.get(bucketIndex);
+
+        // Check if key is already present
+        while (head != null) {
+            if (head.key.equals(key) && head.hashCode == hashCode) {
+                head.value = value;
+                return;
+            }
+            head = head.next;
+        }
+    }
 }
