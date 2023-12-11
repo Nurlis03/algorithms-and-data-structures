@@ -107,7 +107,6 @@ class Map<K, V> {
             }
             head = head.next;
         }
-
         // If key not found
         return null;
     }
@@ -126,6 +125,30 @@ class Map<K, V> {
                 return;
             }
             head = head.next;
+        }
+
+        // Insert key in chain
+        head = bucketArray.get(bucketIndex);
+        HashNode<K, V> newNode
+            = new HashNode(key, value, hashCode);
+        newNode.next = head;
+        bucketArray.set(bucketIndex, newNode);
+
+        // If load factor goes beyond threshold, then
+        // double hash table size
+        if ((1.0 * size) / numBuckets >= 0.7) {
+            ArrayList<HashNode<K, V>> temp = bucketArray;
+            bucketArray = new ArrayList<>();
+            numBuckets = 2 * numBuckets;
+            size = 0;
+            for (int i = 0; i < numBuckets; i++)
+                bucketArray.add(null);
+            for (HashNode<K, V> headNode: temp) {
+                while (headNode != null) {
+                    add(headNode.key, headNode.value);
+                    headNode = headNode.next;
+                }
+            }
         }
     }
 }
