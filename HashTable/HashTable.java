@@ -1,5 +1,3 @@
-package HashTable;
-
 import java.util.Objects;
 
 // A node of chains
@@ -151,7 +149,9 @@ class Map<K, V> {
             }
         }
     }
+}
 
+public class HashTable {
     // Driver method to test Map class
     public static void main(String[] args) {
         Map<String, Integer> map = new Map<>();
