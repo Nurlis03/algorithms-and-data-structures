@@ -23,3 +23,39 @@ static boolean getBit(int num, int i)
     return ((num & (1 << i)) != 0);
 }
 ```
+
+## Set Bit
+
+This method is used to set the bit at a particular position(say i) of the given number N. The idea is to update the value of the given number N to the Bitwise OR of the given number N and 2i that can be represented as (1 << i). If the value return is 1 then the bit at the ith position is set. Otherwise, it is unset.
+
+```Java
+// Function to set the ith bit of the
+// given number num
+static int setBit(int num, int i)
+{
+    // Sets the ith bit and return
+    // the updated value
+    return num | (1 << i);
+}
+```
+![Alt text](image-2.png)
+
+## Clear Bit
+This method is used to clear the bit at a particular position(say i) of the given number N. The idea is to update the value of the given number N to the Bitwise AND of the given number N and the compliment of 2i that can be represented as ~(1 << i). If the value return is 1 then the bit at the ith position is set. Otherwise, it is unset.
+
+```Java
+// Function to clear the ith bit of
+// the given number num
+static int clearBit(int num, int i)
+{
+ 
+    // Create the mask for the ith
+    // bit unset
+    int mask = ~(1 << i);
+ 
+    // Return the updated value
+    return num & mask;
+}
+```
+
+![Alt text](image-3.png)
